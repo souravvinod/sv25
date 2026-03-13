@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MWSGMG0X17"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MWSGMG0X17');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sourav Vinod — UX Designer</title>
@@ -640,13 +631,13 @@ nav {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 2px;
 }
 
 .skill-block {
   background: var(--surface);
-  padding: 24px;
+  padding: 48px 36px;
   position: relative;
   overflow: hidden;
   transition: background 0.3s;
@@ -658,13 +649,13 @@ nav {
   content: '';
   position: absolute;
   top: 0; left: 0;
-  width: 2px;
-  height: 0;
+  width: 0;
+  height: 2px;
   background: var(--accent);
-  transition: height 0.4s var(--ease);
+  transition: width 0.4s var(--ease);
 }
 
-.skill-block:hover::before { height: 100%; }
+.skill-block:hover::before { width: 100%; }
 
 .skill-icon {
   font-family: var(--mono);
@@ -1733,11 +1724,97 @@ nav {
 /* ===== FOOTER ===== */
 footer {
   border-top: 1px solid var(--border);
-  padding: 32px 56px;
-  max-width: 100%;
+  background: var(--bg-2);
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+
+.footer-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 56px 0 48px;
+  border-bottom: 1px solid var(--border);
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-logo {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--white);
+  letter-spacing: 0.06em;
+}
+
+.footer-logo span { color: var(--accent); }
+
+.footer-tagline {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  max-width: 280px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.footer-link {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.footer-link:hover { color: var(--white); }
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.footer-social-link {
+  width: 36px; height: 36px;
+  border: 1px solid var(--border-mid);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.footer-social-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .footer-copy {
@@ -1745,6 +1822,25 @@ footer {
   font-size: 10px;
   color: var(--muted);
   letter-spacing: 0.08em;
+}
+
+.footer-copy.muted { opacity: 0.5; }
+
+.footer-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+.footer-dot {
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
 }
 
 .footer-right {
@@ -1778,44 +1874,301 @@ footer {
 
 /* ===== SKILLS & EXPERIENCE SECTION ===== */
 #skills-exp {
-  padding: 80px 0 100px;
+  padding: 100px 0 120px;
 }
 
-.skills-exp-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  max-width: 1200px;
+.skills-exp-inner {
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 56px;
 }
 
-.skills-col {}
-.exp-col { display: flex; flex-direction: column; justify-content: flex-start; }
+.skills-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 64px;
+  gap: 40px;
+}
+
+.skills-heading {
+  font-family: var(--display);
+  font-size: clamp(52px, 6vw, 88px);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.skills-heading em {
+  font-style: italic;
+  color: var(--light);
+}
+
+.skills-header-right {
+  max-width: 340px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  padding-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-bottom: 2px;
+}
+
+.skill-block {
+  background: var(--surface);
+  padding: 56px 40px 48px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.skill-block:hover { background: var(--surface-2); }
+
+.skill-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.4s var(--ease);
+}
+
+.skill-block:hover::before { width: 100%; }
+
+.skill-icon {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  margin-bottom: 40px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+.skill-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--off-white);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.skill-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Tools strip below skills */
+.skills-tools-strip {
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  padding: 24px 40px;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.skills-tools-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-right: 32px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.skills-tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--light);
+  letter-spacing: 0.06em;
+  padding: 5px 12px;
+  border: 1px solid var(--border-mid);
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.skill-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  nav { padding: 0 24px; }
-  #hero { padding: 64px 24px 0; grid-template-rows: auto 1fr auto auto; }
-  .hero-top-bar { flex-direction: column; gap: 16px; align-items: flex-start; padding: 24px 0 0; }
-  .hero-top-left { flex-wrap: wrap; gap: 8px; }
-  .hero-row { flex-direction: column; gap: 32px; align-items: flex-start; padding-bottom: 40px; }
-  .hero-meta { flex-direction: row; gap: 32px; }
-  .hero-discipline { display: none; }
-  .skills-exp-grid { grid-template-columns: 1fr; padding: 0 24px; }
-  #skills-exp { padding: 60px 0; }
-  #about { padding: 80px 24px; grid-template-columns: 1fr; gap: 0; }
-  #work { padding: 40px 24px 80px; }
-  .work-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .case-card { grid-template-columns: 1fr; }
-  .case-visual { min-height: 260px; order: -1; }
-  .contact-inner { grid-template-columns: 1fr; gap: 48px; }
-  #contact { padding: 80px 24px 60px; }
-  footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
+  /* Nav */
+  nav { padding: 0 20px; }
   .nav-links { display: none; }
+  .nav-status { font-size: 9px; }
+
+  /* Hero */
+  #hero { padding: 64px 20px 0; }
+  .hero-top-bar { flex-direction: column; gap: 10px; align-items: flex-start; padding: 20px 0 0; }
+  .hero-top-left { flex-wrap: wrap; gap: 8px; }
+  .cred-pill { min-width: 0; width: 100%; height: auto; padding: 10px 14px; }
+  .hero-row { flex-direction: column; gap: 24px; align-items: flex-start; padding-bottom: 32px; }
+  .hero-meta { flex-direction: row; gap: 24px; flex-wrap: wrap; }
+  .hero-discipline { display: none; }
+  .hero-title { font-size: clamp(48px, 12vw, 96px) !important; }
+  .hero-index { font-size: 9px; }
+  .hero-scroll { display: none; }
+
+  /* About */
+  #about { padding: 60px 20px; grid-template-columns: 1fr; gap: 40px; }
+  .about-left { max-width: 100%; }
+  .about-body { font-size: 14px; }
+
+  /* Work */
+  #work { padding: 40px 20px 80px; }
+  .work-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .case-card { grid-template-columns: 1fr; }
+  .case-visual { min-height: 240px; order: -1; }
+  .case-content { padding: 32px 24px; }
+  .case-title { font-size: 20px; }
+
+  /* Skills */
+  #skills-exp { padding: 60px 0; }
+  .skills-exp-inner { padding: 0 20px; }
+  .skills-header-row { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 40px; }
+  .skills-heading { font-size: clamp(40px, 10vw, 64px); }
+  .skills-header-right { max-width: 100%; }
+  .skills-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+  .skill-block { padding: 32px 20px; }
+  .skills-tools-strip { padding: 20px; gap: 12px; flex-direction: column; align-items: flex-start; }
+
+  /* Contact */
+  #contact { padding: 60px 20px 48px; }
+  .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+  .contact-heading { font-size: clamp(36px, 10vw, 64px); }
+  .contact-item { padding: 18px 20px; }
+
+  /* Footer */
+  footer { padding: 0; }
+  .footer-inner { padding: 0 20px; }
+  .footer-top { padding: 40px 0 32px; gap: 28px; }
+  .footer-links { gap: 20px; flex-wrap: wrap; }
+  .footer-bottom { padding: 20px 0; flex-direction: column; align-items: flex-start; gap: 10px; }
+
+  /* Section tags & dividers */
+  .section-tag { padding: 0 20px !important; }
+  .section-divider { margin: 0 20px; }
+}
+
+@media (max-width: 480px) {
+  /* Nav */
+  nav { padding: 0 16px; }
+  .nav-status span:last-child { display: none; }
+
+  /* Hero */
+  #hero { padding: 64px 16px 0; }
+  .hero-title { font-size: clamp(38px, 14vw, 72px) !important; }
+  .cred-pill { min-width: 0; }
+  .hero-meta { gap: 16px; }
+
+  /* About */
+  #about { padding: 48px 16px; }
+  .about-body { font-size: 13px; line-height: 1.7; }
+  .about-cta { padding: 9px 16px; font-size: 10px; }
+
+  /* Work */
+  #work { padding: 32px 16px 64px; }
+  .case-content { padding: 24px 16px; }
+  .case-title { font-size: 18px; }
+  .case-desc { font-size: 12px; }
+  .case-footer { padding: 16px; gap: 12px; flex-wrap: wrap; }
+
+  /* Skills */
+  .skills-grid { grid-template-columns: 1fr; }
+  .skill-block { padding: 28px 16px; }
+  .skills-heading { font-size: clamp(36px, 12vw, 52px); }
+  .section-tag { padding: 0 16px !important; font-size: 9px; }
+
+  /* Contact */
+  #contact { padding: 48px 16px 40px; }
+  .contact-item { padding: 16px; }
+  .contact-item-val { font-size: 12px; }
+
+  /* Footer */
+  footer { padding: 16px; }
+}
+/* ===== HAMBURGER & MOBILE MENU ===== */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px; height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 200;
+}
+.nav-hamburger span {
+  display: block;
+  width: 20px; height: 1.5px;
+  background: var(--light);
+  transition: all 0.3s var(--ease);
+  transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 64px; left: 0; right: 0;
+  background: rgba(11,11,15,0.97);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+  z-index: 99;
+  flex-direction: column;
+  padding: 12px 0 20px;
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: all 0.25s var(--ease);
+}
+.mobile-menu.open {
+  display: flex;
+  transform: translateY(0);
+  opacity: 1;
+}
+.mobile-link {
+  padding: 14px 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+  border-bottom: 1px solid var(--border);
+}
+.mobile-link:last-child { border-bottom: none; }
+.mobile-link:hover { color: var(--white); }
+
+@media (max-width: 900px) {
+  .nav-hamburger { display: flex; }
 }
 </style>
-</head>
 <body>
 
 <!-- Cursor -->
@@ -1834,7 +2187,16 @@ footer {
     <div class="nav-status-dot"></div>
     Available for work
   </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="mobile-link" onclick="closeMobileMenu()">About</a>
+  <a href="#work" class="mobile-link" onclick="closeMobileMenu()">Work</a>
+  <a href="#contact" class="mobile-link" onclick="closeMobileMenu()">Contact</a>
+</div>
 
 <!-- Hero -->
 <section id="hero">
@@ -1927,7 +2289,7 @@ footer {
     <div class="section-tag">About</div>
     <h2 class="about-heading">Where craft meets<br><em>complexity</em></h2>
     <p class="about-body">
-      I'm a UX designer based in Bengaluru, specialising in turning complex systems into clear, delightful experiences. From airport cargo kiosks to AI-driven hiring platforms, I bridge the gap between ambitious product visions and the humans who use them every day.
+      I'm a UX designer specialising in turning complex systems into clear, delightful experiences. From airport cargo kiosks to AI-driven hiring platforms, I bridge the gap between ambitious product visions and the humans who use them every day.
       <br><br>
       Currently at <strong style="color:var(--off-white)">Apple Inc</strong> (on contract through Adecco), partnering with a US-based team to enhance internal content creation platforms.
     </p>
@@ -1936,7 +2298,7 @@ footer {
         <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
-      <a href="mailto:souravvinod@gmail.com" class="link-pill">
+      <a href="/cdn-cgi/l/email-protection#41322e3433203737282f2e2501262c20282d6f222e2c" class="link-pill">
         <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
         Email
       </a>
@@ -2192,7 +2554,7 @@ footer {
                       <div class="ig-avatar" style="background:linear-gradient(135deg,#2d7ef7,#0ee6b7)">AR</div>
                       <div class="ig-card-info">
                         <div class="ig-card-name">Ananya Rao</div>
-                        <div class="ig-card-role">Sr. UX Designer · Bangalore</div>
+                        <div class="ig-card-role">Sr. UX Designer</div>
                       </div>
                       <div class="ig-score-badge">
                         <div class="ig-score-ring">
@@ -2443,33 +2805,55 @@ footer {
 <!-- Skills & Experience -->
 <section id="skills-exp">
   <div class="skills-exp-inner">
-    <div class="section-tag" style="padding: 0 56px; max-width:1200px; margin: 0 auto 56px;">Capabilities &amp; Experience</div>
-    <div class="skills-exp-grid">
-      <div class="skills-col">
-        <div class="skills-grid">
-          <div class="skill-block">
-            <div class="skill-icon">01</div>
-            <div class="skill-title">Interface Design</div>
-            <div class="skill-desc">Figma, Invision Studio, Axure RP — from lo-fi wireframes to pixel-perfect prototypes.</div>
-          </div>
-          <div class="skill-block">
-            <div class="skill-icon">02</div>
-            <div class="skill-title">User Research</div>
-            <div class="skill-desc">Qualitative research, heuristic evaluation, usability testing with clickthrough prototypes.</div>
-          </div>
-          <div class="skill-block">
-            <div class="skill-icon">03</div>
-            <div class="skill-title">Systems Thinking</div>
-            <div class="skill-desc">Information architecture, design systems, developer handoff for complex enterprise products.</div>
-          </div>
-          <div class="skill-block">
-            <div class="skill-icon">04</div>
-            <div class="skill-title">Agile Collab</div>
-            <div class="skill-desc">Embedded in agile teams, iterating fast, maintaining flexibility to evolving requirements.</div>
-          </div>
-        </div>
+
+    <div class="skills-header-row fade-up">
+      <div class="section-tag" style="margin-bottom: 16px;">Capabilities &amp; Experience</div>
+    </div>
+
+    <div class="skills-header-row fade-up">
+      <h2 class="skills-heading">What I<br>bring to the<br><em>table</em></h2>
+      <p class="skills-header-right">Four years shaping digital products — from zero-to-one concepts to scaling enterprise platforms. I work at the intersection of research, craft, and engineering collaboration.</p>
+    </div>
+
+    <div class="skills-grid fade-up">
+      <div class="skill-block">
+        <div class="skill-icon">01 — RESEARCH</div>
+        <div class="skill-title">User Research</div>
+        <div class="skill-desc">Qualitative research, heuristic evaluation, and usability testing with clickthrough prototypes to validate decisions early.</div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-icon">02 — SYSTEMS</div>
+        <div class="skill-title">Systems Thinking</div>
+        <div class="skill-desc">Information architecture, design systems, and developer handoff for complex enterprise products at scale.</div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-icon">03 — DESIGN</div>
+        <div class="skill-title">Interface Design</div>
+        <div class="skill-desc">Figma, Invision Studio, Axure RP — from lo-fi wireframes to pixel-perfect prototypes that engineering can build from.</div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-icon">04 — PROCESS</div>
+        <div class="skill-title">Agile Collaboration</div>
+        <div class="skill-desc">Embedded in agile teams, iterating fast, maintaining flexibility to evolving product and business requirements.</div>
       </div>
     </div>
+
+    <div class="skills-tools-strip fade-up">
+      <span class="skills-tools-label">Tools &amp; Stack</span>
+      <div class="skills-tools-list">
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Axure RP</span>
+        <span class="skill-tag">Invision</span>
+        <span class="skill-tag">Maze</span>
+        <span class="skill-tag">Notion</span>
+        <span class="skill-tag">Jira</span>
+        <span class="skill-tag">Confluence</span>
+        <span class="skill-tag">HTML / CSS</span>
+        <span class="skill-tag">Miro</span>
+        <span class="skill-tag">Zeplin</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -2485,7 +2869,7 @@ footer {
       <a href="mailto:souravvinod@gmail.com" class="contact-item">
         <div class="contact-item-left">
           <span class="contact-item-label">Email</span>
-          <span class="contact-item-val"><span class="__cf_email__" data-cfemail="50233f2522312626393e3f3410373d31393c7e333f3d">[email&#160;protected]</span></span>
+          <span class="contact-item-val">souravvinod@gmail.com</span>
         </div>
         <div class="contact-item-icon">
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
@@ -2515,6 +2899,48 @@ footer {
 
 <!-- Footer -->
 <footer>
-  <div class="footer-copy">© 2025 Sourav Vinod — UX Designer, Bengaluru</div>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">sv<span>_</span>portfolio</div>
+      </div>
+      <div class="footer-links">
+        <a href="#about" class="footer-link">about</a>
+        <a href="#work" class="footer-link">work</a>
+        <a href="#skills-exp" class="footer-link">capabilities</a>
+        <a href="#contact" class="footer-link">contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="mailto:souravvinod@gmail.com" class="footer-social-link" aria-label="Email">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/souravvinod" target="_blank" class="footer-social-link" aria-label="LinkedIn">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Sourav Vinod</span>
+      <span class="footer-status">
+        <span class="footer-dot"></span>
+        Available for new opportunities
+      </span>
+      <span class="footer-copy muted">Designed &amp; built by Sourav Vinod</span>
+    </div>
+  </div>
 </footer>
 
+<script>
+const hamburger = document.getElementById('navHamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+</script>
+</body>
+</html>
