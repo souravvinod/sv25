@@ -2319,6 +2319,119 @@ to {
 .fu.vis {
   animation:fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) forwards;
 }
+
+/* ── MOBILE RESPONSIVE ADDITIONS ── */
+@media (max-width:600px) {
+  .wrap {
+    padding:0 16px;
+  }
+  .hero {
+    padding:80px 0 40px;
+  }
+  .section {
+    padding:48px 0;
+  }
+  .research-section {
+    padding:32px 16px 48px;
+    margin:0 -4px;
+    border-radius:20px;
+  }
+  /* Nav scrollable on mobile */
+  .nav-inner {
+    overflow-x:auto;
+    padding:0 12px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .nav-inner::-webkit-scrollbar { display:none; }
+  .nav-step { padding:0 8px; font-size:9px; }
+  /* Tab nav scrollable */
+  .tab-nav-inner {
+    overflow-x:auto;
+    padding:0 12px;
+    justify-content:flex-start;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .tab-nav-inner::-webkit-scrollbar { display:none; }
+  .tab-btn { padding:0 12px; font-size:10px; }
+  .tab-panels { padding-top:110px; }
+  /* Hero */
+  .hero-cols { grid-template-columns:1fr; }
+  .hero-title { font-size:clamp(24px,7vw,36px); }
+  .hero-desc { font-size:14px; }
+  /* Grids */
+  .prob-grid { grid-template-columns:1fr; }
+  .ns-grid { grid-template-columns:1fr; }
+  .kpi-grid { grid-template-columns:1fr 1fr; }
+  .impact-grid { grid-template-columns:1fr 1fr; }
+  .imp-kpi-strip { grid-template-columns:1fr 1fr; }
+  .impact-charts-row { grid-template-columns:1fr; }
+  .impact-stk-grid { grid-template-columns:1fr; }
+  .sth-grid { grid-template-columns:1fr; }
+  .obj-grid { grid-template-columns:1fr; }
+  .method-grid { grid-template-columns:1fr 1fr; }
+  .participant-row { grid-template-columns:1fr 1fr; }
+  .week-grid { grid-template-columns:1fr; }
+  .breaks-grid { grid-template-columns:1fr; }
+  .constraints-grid { grid-template-columns:1fr 1fr; }
+  /* Two-col → single on mobile */
+  .persona-grid { grid-template-columns:1fr; }
+  .ic-cols { grid-template-columns:1fr; }
+  .ins-two-col { grid-template-columns:1fr; }
+  .ins-prob-body { grid-template-columns:1fr; }
+  .ins-col:first-child { border-right:none; border-bottom:1px solid rgba(0,0,0,0.05); }
+  .opp-row { grid-template-columns:1fr; }
+  .opp-problem { border-right:none; border-bottom:1px solid rgba(0,0,0,0.05); }
+  /* Journey table scroll */
+  .journey-table { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .jt-head, .jt-row { min-width:520px; }
+  /* BVA table */
+  .bva-row { grid-template-columns:1fr 1fr; gap:6px; }
+  .bva-head { display:none; }
+  /* Workflow */
+  .workflow-wrap { padding:24px 16px; }
+  .workflow-track { flex-wrap:wrap; gap:12px; }
+  .workflow-track::before { display:none; }
+  .wf-connector { display:none; }
+  .wf-step { flex:0 0 calc(50% - 6px); }
+  /* STH diagram */
+  .sth-row { flex-wrap:wrap; justify-content:center; gap:8px; }
+  .sth-line-h { display:none; }
+  .sth-diagram { padding:24px 16px; }
+  /* Bar chart label widths */
+  .b-lbl { min-width:90px; font-size:11px; }
+  .tl-label { min-width:100px; font-size:11px; }
+  .imp-hbar-label { min-width:90px; font-size:11px; }
+  /* Padding reductions */
+  .why-card { padding:22px 20px; }
+  .hmw { padding:22px 20px; }
+  .quote-card { padding:20px; }
+  .panel-footer { padding:28px 16px 40px; flex-direction:column; gap:16px; align-items:flex-start; }
+  .coming-soon { padding:80px 16px; }
+  /* Insight cards */
+  .insight-card { flex-direction:column; }
+  .ic-left { flex-direction:row; padding:14px 20px; border-right:none; border-bottom:1px solid rgba(0,0,0,0.05); }
+  .ic-line { display:none; }
+  /* ins-row */
+  .ins-row { flex-direction:column; }
+  .ins-index { flex-direction:row; width:100%; border-right:none; border-bottom:1px solid rgba(0,0,0,0.05); padding:12px 18px; }
+  .ins-vline { display:none; }
+  /* Section divider */
+  .sd-badge { padding:8px 16px; }
+  /* Kiosk / SC screens - make scrollable */
+  .kiosk-wrap, .sc-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  /* Footer */
+  .footer { flex-direction:column; gap:20px; align-items:flex-start; }
+  /* Donut chart */
+  .donut-layout { flex-direction:column; align-items:flex-start; }
+  /* KPI numbers scale */
+  .kpi-num { font-size:28px; }
+  .imp-kpi-num { font-size:36px; }
+  .ns-num { font-size:48px; }
+  /* Meta card */
+  .meta-card { margin-top:24px; }
+}
 .d1 {
   animation-delay:0.05s;
 }
